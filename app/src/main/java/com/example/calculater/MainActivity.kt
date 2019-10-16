@@ -112,6 +112,8 @@ class MainActivity : AppCompatActivity() {
         }
         outState.putString(STATE_PENDING_OPERATION, pendingOperation)
     }
-
-
+     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        operand1 =  (savedInstanceState.getDouble(STATE_OPERAND1))
+    }
 }
