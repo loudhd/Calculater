@@ -10,11 +10,11 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     private lateinit var result: EditText
     private lateinit var newNumber: EditText
-    private val displayOperation by lazy{LazyThreadSafetyMode.NONE} { findViewById<TextView>(R.id.operation) }
+    private val displayOperation by lazy { LazyThreadSafetyMode.NONE } { findViewById<TextView>(R.id.operation) }
 
 
-    private var operand1 : Double? = null
-    private var operand2:  Double = 0.0
+    private var operand1: Double? = null
+    private var operand2: Double = 0.0
     private var pendingOperation = "="
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,5 +60,26 @@ class MainActivity : AppCompatActivity() {
         button9.setOnClickListener(listner)
         buttonDot.setOnClickListener(listner)
 
+
+        val opListner = View.OnClickListener { v ->
+            val op = (v as Button).text.toString()
+            val value = newNumber.text.toString()
+            if (value.isNotEmpty()) {
+                performOperation(value, op)
+            }
+            pendingOperation = op
+            displayOperation.text = pendingOperation
+        }
+        buttonEquals.setOnClickListener(opListner)
+        buttonDivide.setOnClickListener(opListner)
+        buttonMultiply.setOnClickListener(opListner)
+        buttonMinus.setOnClickListener(opListner)
+        buttonPlus.setOnClickListener(opListner)
     }
+
+    private fun performOperation(value: String, opertion: String) {
+        displayOperation.text = opertion
+    }
+
+
 }
