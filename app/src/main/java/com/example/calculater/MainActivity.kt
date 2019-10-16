@@ -12,10 +12,10 @@ private const val STATE_OPERAND1 = "Operand1"
 private const val STATE_OPERAND1_STORED = "Operand1_Stored"
 
 class MainActivity : AppCompatActivity() {
-   /* private lateinit var result: EditText
+    private lateinit var result: EditText
     private lateinit var newNumber: EditText
     private val displayOperation by lazy(LazyThreadSafetyMode.NONE) { findViewById<TextView>(R.id.operation) }
-*/
+
 
     private var operand1: Double? = null
     private var pendingOperation = "="
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       /* result = findViewById(R.id.result)
+       result = findViewById(R.id.result)
         newNumber = findViewById(R.id.newNumber)
 
         val button0: Button = findViewById(R.id.button0)
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
         val buttonMinus = findViewById<Button>(R.id.buttonMinus)
         val buttonPlus = findViewById<Button>(R.id.buttonPlus)
-*/
+
         val listner = View.OnClickListener { v ->
             val b = v as Button
             newNumber.append(b.text)
@@ -62,6 +62,21 @@ class MainActivity : AppCompatActivity() {
         button8.setOnClickListener(listner)
         button9.setOnClickListener(listner)
         buttonDot.setOnClickListener(listner)
+
+        buttonNeg.setOnClickListener({ view ->
+            val value = newNumber.text.toString()
+            if (value.isEmpty()) {
+                newNumber.setText("-")
+            } else {
+                try {
+                    var doubleValue = value.toDouble()
+                    doubleValue *= -1
+                    newNumber.setText(doubleValue.toString())
+                } catch (e: NumberFormatException) {
+                    // newNumber was "-" or ".", so clear it
+                    newNumber.setText("")
+                }
+            }
 
 
         val opListner = View.OnClickListener { v ->
@@ -80,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         buttonMultiply.setOnClickListener(opListner)
         buttonMinus.setOnClickListener(opListner)
         buttonPlus.setOnClickListener(opListner)
+
     }
 
     private fun performOperation(value: Double, opertion: String) {
