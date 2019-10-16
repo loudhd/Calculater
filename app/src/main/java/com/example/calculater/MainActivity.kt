@@ -6,16 +6,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-
+import kotlinx.android.synthetic.main.activity_main.*
 private const val STATE_PENDING_OPERATION = "PendingOperation"
 private const val STATE_OPERAND1 = "Operand1"
 private const val STATE_OPERAND1_STORED = "Operand1_Stored"
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var result: EditText
+   /* private lateinit var result: EditText
     private lateinit var newNumber: EditText
     private val displayOperation by lazy(LazyThreadSafetyMode.NONE) { findViewById<TextView>(R.id.operation) }
-
+*/
 
     private var operand1: Double? = null
     private var pendingOperation = "="
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        result = findViewById(R.id.result)
+       /* result = findViewById(R.id.result)
         newNumber = findViewById(R.id.newNumber)
 
         val button0: Button = findViewById(R.id.button0)
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
         val buttonMinus = findViewById<Button>(R.id.buttonMinus)
         val buttonPlus = findViewById<Button>(R.id.buttonPlus)
-
+*/
         val listner = View.OnClickListener { v ->
             val b = v as Button
             newNumber.append(b.text)
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 newNumber.setText("")
             }
             pendingOperation = op
-            displayOperation.text = pendingOperation
+            operation.text = pendingOperation
         }
         buttonEquals.setOnClickListener(opListner)
         buttonDivide.setOnClickListener(opListner)
@@ -104,7 +104,6 @@ class MainActivity : AppCompatActivity() {
         }
         result.setText(operand1.toString())
         newNumber.setText("")
-        displayOperation.text = opertion
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -125,6 +124,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         pendingOperation = savedInstanceState.getString(STATE_PENDING_OPERATION).toString()
-        displayOperation.text = pendingOperation
+        operation.text = pendingOperation
     }
 }
