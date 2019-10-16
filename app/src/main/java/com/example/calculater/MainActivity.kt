@@ -6,7 +6,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
+
+private const val STATE_PENDING_OPERATION = "PendingOperation"
+private const val STATE_OPERAND1 = "Operand1"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var result: EditText
