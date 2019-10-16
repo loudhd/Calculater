@@ -2,6 +2,7 @@ package com.example.calculater
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -38,10 +39,26 @@ class MainActivity : AppCompatActivity() {
 
         val buttonEquals = findViewById<Button>(R.id.buttonEquals)
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
-        val buttonMultiply= findViewById<Button>(R.id.buttonMultiply)
+        val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
         val buttonMinus = findViewById<Button>(R.id.buttonMinus)
         val buttonPlus = findViewById<Button>(R.id.buttonPlus)
 
+        val listner = View.OnClickListener { v ->
+            val b = v as Button
+            newNumber.append(b.text)
+
+        }
+        button0.setOnClickListener(listner)
+        button1.setOnClickListener(listner)
+        button2.setOnClickListener(listner)
+        button3.setOnClickListener(listner)
+        button4.setOnClickListener(listner)
+        button5.setOnClickListener(listner)
+        button6.setOnClickListener(listner)
+        button7.setOnClickListener(listner)
+        button8.setOnClickListener(listner)
+        button9.setOnClickListener(listner)
+        buttonDot.setOnClickListener(listner)
 
     }
 }
