@@ -63,11 +63,9 @@
         android:id="@+id/button9"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
         android:text="9"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        tools:layout_editor_absoluteX="516dp"
+        tools:layout_editor_absoluteY="113dp" />
 
     <Button
         android:id="@+id/buttonDot"
@@ -102,26 +100,18 @@
         android:id="@+id/button6"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginTop="8dp"
         android:text="6"
         app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginTop="8dp"
         android:text="3"
         app:layout_constraintEnd_toEndOf="@+id/button6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
@@ -129,12 +119,13 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="="
         app:layout_constraintBottom_toBottomOf="@+id/buttonPlus"
         app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toEndOf="@+id/buttonDot"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button0"
