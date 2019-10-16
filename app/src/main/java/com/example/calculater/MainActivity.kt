@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private lateinit var result: EditText
     private lateinit var newNumber: EditText
-    private val displayOperation by lazy { LazyThreadSafetyMode.NONE } { findViewById<TextView>(R.id.operation) }
+    private val displayOperation by lazy ( LazyThreadSafetyMode.NONE ) { findViewById<TextView>(R.id.operation) }
 
 
     private var operand1: Double? = null
